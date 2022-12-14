@@ -1,4 +1,4 @@
-# Godot-Style-Guide
+# Godot Style Guide
 
 ### [English >](https://www.bakneko.com)
 
