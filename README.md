@@ -1,20 +1,22 @@
 # Godot Style Guide
 
-### [English >](https://www.bakneko.com)
+简体中文 | [English](https://www.bakneko.com)
 
 ## 1 摘要
 
-对于涉及多人团队协作的项目，Godot并没有一个确切的项目文件规范。本指南旨在提供组织Godot项目的规范，来简化多人协作流程。
+对于涉及多人团队协作的项目，Godot并没有一个完全适合的项目文件规范。本指南旨在提供组织Godot项目的建议，来简化多人协作流程。
 
 ## 2 文件命名规范
 
-所有资产都应该有一个基本资产名称。 基本资产名称表示相关资产的逻辑分组。 任何属于这个逻辑组的资产都应该遵循 **基本资产名称_后缀.资产类型对应的文件扩展名**
+所有资产都应该有一个基本资产名称。 基本资产名称表示相关资产的逻辑分组。 任何属于这个逻辑组的资产都应该遵循：
+
+ **基本资产名称_后缀.资产类型对应的文件扩展名**
 
 对于资产的独特和特定的变量，基本资产名称要么是一个简短和易于识别的名称，它表示资产的逻辑分组，这些资产是资产基本名称的子集。 例如，如果Bob有多个皮肤，这些皮肤仍然应该使用bob作为基本资产名称，但包括一个可识别的变体。 一个 Evil 皮肤将被称为 bob_evil 和 retro 皮肤将被称为bob_retro。
 
 对于唯一的资产但通用的变量，基本资产名称是从01开始的两位数。 例如，如果你有一个环境艺术家产生不寻常的岩石，他们将被命名为 rock_01，rock_02，rock_03 等。 除了罕见的例外，你不应该要求一个三位数的变体号码。 如果您有100多个资产，您应该考虑使用不同的基本名称或使用多个变体名称来组织它们。
 
-wuling_01.glb,   wuling_01_albedo.png,    wuling_01_normal.png
+wuling_01.gltf,   wuling_01_albedo.png,    wuling_01_normal.png
 
 ### 2.1 示例
 
@@ -31,7 +33,7 @@ wuling_01.glb,   wuling_01_albedo.png,    wuling_01_normal.png
     </tr>
     <tr>
         <td>Skeletal Mesh (骨骼网格体)</td>
-        <td>bob_skleton.glb</td>
+        <td>bob_skleton.gltf</td>
     </tr>
     <tr>
         <td>Material (材质)</td>
@@ -56,15 +58,15 @@ wuling_01.glb,   wuling_01_albedo.png,    wuling_01_normal.png
     </tr>
     <tr>
         <td>Static Mesh 01 (静态网格体)</td>
-        <td>rock_01.glb</td>
+        <td>rock_01.gltf</td>
     </tr>
     <tr>
         <td>Static Mesh 02 (静态网格体)</td>
-        <td>rock_02.glb</td>
+        <td>rock_02.gltf</td>
     </tr>
     <tr>
         <td>Static Mesh 03 (静态网格体)</td>
-        <td>rock_03.glb</td>
+        <td>rock_03.gltf</td>
     </tr>
     <tr>
         <td>Texture (基本色 Albedo)</td>
@@ -89,39 +91,39 @@ wuling_01.glb,   wuling_01_albedo.png,    wuling_01_normal.png
     </tr>
     <tr>
         <td>Texture (Albedo)</td>
-        <td>tank_albedo.png</td>
+        <td>tank_01_albedo.png</td>
     </tr>
     <tr>
         <td>Texture (Normal)</td>
-        <td>tank_normal.png</td>
+        <td>tank_01_normal.png</td>
     </tr>
     <tr>
         <td>Texture (Roughness)</td>
-        <td>tank_rough.png</td>
+        <td>tank_01_rough.png</td>
     </tr>
     <tr>
         <td>Texture (Alpha/Opacity)</td>
-        <td>tank_alpha.png</td>
+        <td>tank_01_alpha.png</td>
     </tr>
     <tr>
         <td>Texture (Ambient Occlusion)</td>
-        <td>tank_ao.png</td>
+        <td>tank_01_ao.png</td>
     </tr>
     <tr>
         <td>Texture (Emissive)</td>
-        <td>tank_emissive.png</td>
+        <td>tank_01_emissive.png</td>
     </tr>
     <tr>
         <td>Texture (Specular)</td>
-        <td>tank_specular.png</td>
+        <td>tank_01_specular.png</td>
     </tr>
     <tr>
         <td>Texture (Metallic)</td>
-        <td>tank_metallic.png</td>
+        <td>tank_01_metallic.png</td>
     </tr>
         <tr>
         <td>Texture (ORM)</td>
-        <td>tank_orm.png</td>
+        <td>tank_01_orm.png</td>
     </tr>
 </table>
 
@@ -137,13 +139,13 @@ wuling_01.glb,   wuling_01_albedo.png,    wuling_01_normal.png
 |-- res://
     |
     |-- addons
-    |   |-- terrain
+    |   |-- terrain_3d
     |   |-- ...
-    |-- shooter
+    |-- waveshooter
     |   |-- meshes
     |   |   |-- industrial
     |   |   |   |-- props
-    |   |   |   |   |-- standlight_01.glb
+    |   |   |   |   |-- standlight_01.gltf
     |   |   |   |   |-- standlight_01_albedo.png
     |   |   |   |   |-- ...
     |   |   |   |-- buildings
@@ -194,7 +196,7 @@ snake_case 是指用小写字母开始一个名字，然后不使用空格而使
 
 #### 3.2.3 永远不要使用Unicode字符和其他符号
 
-如果您的游戏角色之一名为“Zoe”，其文件夹名称应该是 zoe。 对于工程工具，Unicode字符可能比Spaces更糟糕，Godot的某些部分也不支持路径中的Unicode字符。
+如果您的游戏角色之一名为“Zoe”，其文件夹名称应该是 zoe。 对于工程工具，Unicode字符可能比Spaces更糟糕，Godot的某些部分也可能不支持路径中的Unicode字符。
 
 与此相关，如果您的项目有无法解释的问题，并且您的计算机的用户名具有 Unicode 字符(即。 您的名字是 Zoe )，位于您的“Documents”文件夹中的任何项目都将受到此问题的影响。 通常简单地将您的项目移动到 D:\Project 将解决这些问题。
 
@@ -223,7 +225,7 @@ snake_case 是指用小写字母开始一个名字，然后不使用空格而使
     [Ss]andbox/
 ```
 
-团队成员很容易意外地使用尚未准备使用的资产，一旦这些资产被移除，这将导致问题。 例如，艺术家可能正在迭代一组模块化的静态网格，并仍在努力使其大小和网格抓取正确。 如果一个世界建设者在主项目文件夹中看到这些资产，他们可能会在一个层次上使用它们，而不知道它们可能会受到难以置信的更改和/或删除。 这导致团队中的每个人都需要解决大量的重新工作。
+团队成员很容易意外地使用尚未准备使用的资产，一旦这些资产被移除，这将导致问题。 例如，艺术家可能正在制作一组模块化的静态网格，并仍在努力使其大小和网格抓取正确。 如果一个世界建设者在主项目文件夹中看到这些资产，他们可能会在一个层次上使用它们，而不知道它们可能会受到难以置信的更改和/或删除。 这导致团队中的每个人都需要解决大量的重新工作。
 
 如果这些模块化资产被放置在sandbox文件夹中，世界建设者就不应该有理由使用它们，整个问题就永远不会发生。
 
@@ -243,7 +245,9 @@ snake_case 是指用小写字母开始一个名字，然后不使用空格而使
 
 ### 3.6 使用一个名为 core 的文件夹存放关键 GDScripts 和其他资产
 
-使用一个单独的文件夹处理对项目工作绝对重要的资产。 例如，基本Singleton、UI, Audio Bus Layout, Event System, Splash Images 应该住在这里。
+使用一个单独的文件夹处理对项目工作绝对重要的资产。 例如，基本Singleton、UI/HUD, Audio Bus Layout, Event System, Splash Images 应该住在这里。
+
+对于UI，一般情况下，core文件夹只存储主菜单，设置菜单等UI，游戏中的HUD应该存放在游戏项目文件夹下。需要确保对于游戏的更新尽量不修改core中的文件（大版本或DLC更新除外）。
 
 这为其他团队成员创建了一个非常清晰的“不要动这些”信息。 非工程师应该没有什么理由进入 core 文件夹。 遵循良好的代码结构风格，设计师应该在公开功能的子类中进行游戏调整。 世界建筑者应该在指定的maps文件夹中使用Scenes，而不是潜在地滥用基类。
 
